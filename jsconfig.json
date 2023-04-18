@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "#/routes/*": ["./routes/*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    ".vscode",
+    ".npm"
+  ]
+}
