@@ -1,6 +1,5 @@
 extends layout
 
 block content
-    h1(class="text-red-800")= title
-    p Welcome to this website with everything you need #{ha}
-    a(href="https://google.com", class="text-blue-700 underline") Click this link
+    div(class="relative bg-[url('/static/img/hero.jpg')] bg-cover before-content-['*'] before:bg-black/60 before:absolute before:inset-0 min-h-[100vh]")
+        h1 #{title}
