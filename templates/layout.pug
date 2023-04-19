@@ -7,23 +7,29 @@
         <link rel="stylesheet" href="/static/style.css" />
     </head>
     <body>
-        <header class="z-10 absolute left-[50%] bg-white/20 translate-x-[-50%] supports-[backdrop-filter]:backdrop-blur-sm flex gap-x-32 items-center justify-center my-5 px-7 py-3 rounded-2xl w-max text-white font-bold">
+        <header class="z-10 absolute left-[50%] bg-white/20 translate-x-[-50%] supports-[backdrop-filter]:backdrop-blur-sm flex gap-x-12 items-center justify-center my-5 px-7 py-3 rounded-2xl w-max text-white">
             <a href="/">
                 <img class="w-10 pointer" src="/static/img/logo.png" alt="Logo"/>
             </a>
 
-            <nav class="flex gap-x-20">
-               <div>
-                <button class="flex items-center gap-x-3">Production Scientifique <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></span></button>
-               </div>
+        <nav class="flex gap-x-20">
+            <div class="relative">
+                <button class="flex items-center gap-x-7" onclick="document.getElementById('options').classList.toggle('hidden')"> 
+                        p production Scientifique
+                </button>
+                <div id="options" class="absolute hidden z-10 py-1 mt-2 w-40 text-black bg-white rounded-md shadow-lg">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Communication Scientifique</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Reverse Engineering</a>
+                </div>
+            </div>
+            <a href="#">Partenariats</a>
+            <a href="#">Membres</a>
+            <a href="#">Activités</a>
+            <a href="#">Médias</a>
+            <a href="#">À propos</a>
+            <a href="#">Contact</a>
+        </nav>
 
-               <a href="#">Partenariats</a>
-               <a href="#">Membres</a>
-               <a href="#">Activités</a>
-               <a href="#">Médias</a>
-               <a href="#">À propos</a>
-               <a href="#">Contact</a>
-            </nav>
         </header>
         block content
     </body>

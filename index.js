@@ -1,6 +1,5 @@
 import path from "path";
 import express from "express";
-
 import BaseRouter from "#routes/base.js";
 
 const __dirname = path.dirname(".");
