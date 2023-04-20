@@ -10,7 +10,8 @@
         "dev": "nodemon index.js"
     },
     "imports": {
-        "#routes/*": "./routes/*"
+        "#routes/*": "./routes/*",
+        "#utils/*": "./utils/*"
     },
     "keywords": [],
     "author": "",

@@ -79,17 +79,6 @@ class ConfigManager {
         this.#save();
     }
 
-    // get method
-    get = (key) => {
-        if (key === ACTIVITIES_KEY) {
-            return this.activites;
-        } else if (key === EVENTS_KEY) {
-            return this.events;
-        } else {
-            throw new Error("Invalid key");
-        }
-    }
-
     // save method
     #save = () => {
         const obj = {
@@ -154,4 +143,6 @@ class ConfigManager {
     }
 }
 
-export default ConfigManager;
+const rootPath = path.dirname(".");
+const config = new ConfigManager(rootPath);
+export default config;
