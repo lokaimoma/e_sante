@@ -1,5 +1,6 @@
 import path from "path";
 import express from "express";
+import { configManager } from "./utils/config.js";
 import BaseRouter from "#routes/base.js";
 
 const __dirname = path.dirname(".");

@@ -6,4 +6,13 @@ block content
             h1(class="text-6xl text-white font-bold animate-pulse duration-1000 delay-500 mb-4 text-blue-500") Société Marocaine De Santé Digitale
             h2(class="text-2xl text-white font-bold animate-bounce duration-1000 delay-700") La santé numérique au service de la société
 
+    div(class="")
+        h2 Les activites
+
+    div
+        each act in acts
+            a(href=act.link)
+                img(src=act.imgurl alt="Activity image")
+                h3 #{act.title}
+
 

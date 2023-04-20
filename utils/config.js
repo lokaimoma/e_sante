@@ -43,7 +43,7 @@ class ConfigManager {
         this.confFPath = path.join(parentDir, CONFIG_FILE_NAME)
         readFile(this.confFPath, (err, json) => {
             if (err) throw err;
-            const obj = JSON.parse(json);
+            const obj = JSON.parse(json.toString());
             if (obj === null) {
                 throw new Error("Config file is not a valid Json");
             }
@@ -147,6 +147,5 @@ class ConfigManager {
     }
 }
 
-const rootPath = path.dirname(".");
-const config = new ConfigManager(rootPath);
-export default config;
+const configManager = new ConfigManager(path.dirname(".."));
+export {ConfigManager, configManager};

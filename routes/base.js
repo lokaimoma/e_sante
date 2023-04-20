@@ -1,10 +1,10 @@
 import { Router } from "express";
-import configManager from "#utils/config.js";
+import { configManager } from "../utils/config.js";
 
 const router = Router();
 
 router.get("/", (_, res, __) => {
-    res.render('index', { title: 'Main page', events: configManager.activities });
+    res.render('index', { title: 'Main page', acts: configManager.activites });
 });
 
 router.get("/partenariats", (_, res, __) => {
