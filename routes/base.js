@@ -1,17 +1,10 @@
 import {Router} from "express";
+import configManager from "#utils/config.js";
 
 const router = Router();
 
 router.get("/", (_, res, __) => {
-
-    // this array is just temporary | my idea was to pass events as param
-    const events = [
-        { title: "Event 1", imgurl: "image1.jpg" },
-        { title: "Event 2", imgurl: "image2.jpg" },
-        { title: "Event 3", imgurl: "image3.jpg" }
-      ];
-    
-      res.render('index', { title: 'Main page', events: events });
+      res.render('index', { title: 'Main page', events: configManager.events });
 });
 
 router.get("/partenariats", (_, res, __) => {
