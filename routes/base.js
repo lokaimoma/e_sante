@@ -27,5 +27,13 @@ router.get("/evenements", (_, res, __) => {
 });
 
 
+router.get("/ProductionScientifique/reverseEngineering", (_, res, __) => {
+    res.render("reverseEngineering", {title: "Reverse Engineering"})
+});
+
+router.get("/ProductionScientifique/communicationScientifique", (_, res, __) => {
+    res.render("communicationScientifique", {title: "Communication Scientifique"})
+});
+
 
 export default router;

@@ -32,8 +32,10 @@ class Event {
 }
 
 class ConfigManager {
+
     activites = [];
     events = [];
+
     constructor(parentDir) {
         this.confFPath = path.join(parentDir, CONFIG_FILE_NAME)
         readFile(this.confFPath, (err, json) => {
@@ -59,9 +61,96 @@ class ConfigManager {
         })
     }
 
-    //add method
+    // add method
+
+    add = (key, obj) => {
+        if (key === ACTIVITIES_KEY) {
+            this.activites.push(new Activity(obj.imgurl, obj.title, obj.link, obj.id));
+
+        } else if (key === EVENTS_KEY) {
+
+            this.events.push(new Event(obj.title, obj.description, obj.imgurl, obj.id));
+
+        } else {
+            throw new Error("Invalid key");
+        }
+
+    }
+
+    // get method
+
+    get = (key) => {
+        if (key === ACTIVITIES_KEY) {
+            return this.activites;
+        } else if (key === EVENTS_KEY) {
+            return this.events;
+        } else {
+            throw new Error("Invalid key");
+        }
+    }
+
+    // save method
+
+    save = () => {
+        const obj = {
+            [ACTIVITIES_KEY]: this.activites,
+            [EVENTS_KEY]: this.events
+        }
+
+        const json = JSON.stringify(obj);
+
+        writeFile(this.confFPath, json, (err) => {
+            if (err) throw err;
+        })
+    }
+
     // delete method
+
+    delete = (key, id) => {
+
+        if (key === ACTIVITIES_KEY) {
+
+            this.activites = this.activites.filter(act => act.id !== id);
+
+        } else if (key === EVENTS_KEY) {
+
+            this.events = this.events.filter(ev => ev.id !== id);
+
+        } else {
+            throw new Error("Invalid key");
+        }
+
+    }
+
     // update method
+
+    update = (key, id, obj) => {
+
+        if (key === ACTIVITIES_KEY) {
+
+            this.activites = this.activites.map(act => {
+                if (act.id === id) {
+                    return new Activity(obj.imgurl, obj.title, obj.link, obj.id);
+                }
+                return act;
+            });
+
+        } else if (key === EVENTS_KEY) {
+
+            this.events = this.events.map(ev => {
+                if (ev.id === id) {
+                    return new Event(obj.title, obj.description, obj.imgurl, obj.id);
+                }
+                return ev;
+            });
+
+        } else {
+            throw new Error("Invalid key");
+        }
+
+    }
+   
+    
 }
 
 export default ConfigManager;
