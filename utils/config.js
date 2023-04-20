@@ -32,7 +32,6 @@ class Event {
 }
 
 class ConfigManager {
-
     activites = [];
     events = [];
 
@@ -62,23 +61,25 @@ class ConfigManager {
     }
 
     // add method
-
-    add = (key, obj) => {
+    #add = (key, obj) => {
         if (key === ACTIVITIES_KEY) {
             this.activites.push(new Activity(obj.imgurl, obj.title, obj.link, obj.id));
-
         } else if (key === EVENTS_KEY) {
-
             this.events.push(new Event(obj.title, obj.description, obj.imgurl, obj.id));
-
         } else {
             throw new Error("Invalid key");
         }
+    }
 
+    /**
+        * @param {{key: string, obj: Object}[]} insertList
+    */
+    insertAll(insertList) {
+        insertList.forEach(entry => this.#add(entry.key, entry.obj));
+        this.#save();
     }
 
     // get method
-
     get = (key) => {
         if (key === ACTIVITIES_KEY) {
             return this.activites;
@@ -90,8 +91,7 @@ class ConfigManager {
     }
 
     // save method
-
-    save = () => {
+    #save = () => {
         const obj = {
             [ACTIVITIES_KEY]: this.activites,
             [EVENTS_KEY]: this.events
@@ -105,38 +105,34 @@ class ConfigManager {
     }
 
     // delete method
-
-    delete = (key, id) => {
-
+    #delete = (key, id) => {
         if (key === ACTIVITIES_KEY) {
-
             this.activites = this.activites.filter(act => act.id !== id);
-
         } else if (key === EVENTS_KEY) {
-
             this.events = this.events.filter(ev => ev.id !== id);
-
         } else {
             throw new Error("Invalid key");
         }
+    }
 
+    /** 
+        * @param {{key: string, id: string}[]} deleteList
+    */
+    removeAll(deleteList) {
+        deleteList.forEach(entry => this.#delete(entry.key, entry.id));
+        this.#save();
     }
 
     // update method
-
-    update = (key, id, obj) => {
-
+    #update = (key, id, obj) => {
         if (key === ACTIVITIES_KEY) {
-
             this.activites = this.activites.map(act => {
                 if (act.id === id) {
                     return new Activity(obj.imgurl, obj.title, obj.link, obj.id);
                 }
                 return act;
             });
-
         } else if (key === EVENTS_KEY) {
-
             this.events = this.events.map(ev => {
                 if (ev.id === id) {
                     return new Event(obj.title, obj.description, obj.imgurl, obj.id);
@@ -147,10 +143,15 @@ class ConfigManager {
         } else {
             throw new Error("Invalid key");
         }
-
     }
-   
-    
+
+    /**
+        * @param {{key: string, id: string, obj: Object}[]} updateList    
+    */
+    updateAll(updateList) {
+        updateList.forEach(entry => this.#update(entry.key, this.entry.id, this.entry.obj));
+        this.#save();
+    }
 }
 
 export default ConfigManager;
