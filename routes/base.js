@@ -1,31 +1,31 @@
-import {Router} from "express";
+import { Router } from "express";
 import configManager from "#utils/config.js";
 
 const router = Router();
 
 router.get("/", (_, res, __) => {
-      res.render('index', { title: 'Main page', events: configManager.events });
+    res.render('index', { title: 'Main page', events: configManager.activities });
 });
 
 router.get("/partenariats", (_, res, __) => {
-    res.render("partenariats", {title: "Partenariats"})
+    res.render("partenariats", { title: "Partenariats" })
 });
 
 router.get("/contact", (_, res, __) => {
-    res.render("contact", {title: "Contact"})
+    res.render("contact", { title: "Contact" })
 });
 
 router.get("/membres", (_, res, __) => {
-    res.render("membres", {title: "Membres"})
+    res.render("membres", { title: "Membres" })
 });
 
 
 router.get("/ProductionScientifique/reverseEngineering", (_, res, __) => {
-    res.render("reverseEngineering", {title: "Reverse Engineering"})
+    res.render("reverseEngineering", { title: "Reverse Engineering" })
 });
 
 router.get("/ProductionScientifique/communicationScientifique", (_, res, __) => {
-    res.render("communicationScientifique", {title: "Communication Scientifique"})
+    res.render("communicationScientifique", { title: "Communication Scientifique" })
 });
 
 

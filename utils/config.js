@@ -10,6 +10,7 @@ class Activity {
     imgurl;
     title;
     link;
+
     constructor(imgurl, title, link, id) {
         this.imgurl = imgurl;
         this.title = title;
@@ -23,11 +24,14 @@ class Event {
     description;
     imgurl;
     id;
-    constructor(title, description, imgurl, id) {
+    link;
+
+    constructor(title, description, imgurl, id, link) {
         this.title = title;
         this.description = description;
         this.imgurl = imgurl;
         this.id = id;
+        this.link = link;
     }
 }
 
@@ -65,7 +69,7 @@ class ConfigManager {
         if (key === ACTIVITIES_KEY) {
             this.activites.push(new Activity(obj.imgurl, obj.title, obj.link, obj.id));
         } else if (key === EVENTS_KEY) {
-            this.events.push(new Event(obj.title, obj.description, obj.imgurl, obj.id));
+            this.events.push(new Event(obj.title, obj.description, obj.imgurl, obj.id, obj.link));
         } else {
             throw new Error("Invalid key");
         }
@@ -124,7 +128,7 @@ class ConfigManager {
         } else if (key === EVENTS_KEY) {
             this.events = this.events.map(ev => {
                 if (ev.id === id) {
-                    return new Event(obj.title, obj.description, obj.imgurl, obj.id);
+                    return new Event(obj.title, obj.description, obj.imgurl, obj.id, obj.link);
                 }
                 return ev;
             });

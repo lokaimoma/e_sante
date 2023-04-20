@@ -1,4 +1,58 @@
 {
-    "activities": [],
-    "events": []
+    "activities": [
+        {
+            "id": "1",
+            "imgurl": "https://smsd.mtech-services.net/wp-content/uploads/2022/06/summer-school-1024x668.jpg",
+            "title": "Free summer school",
+            "link": "#"
+        },
+        {
+            "id": "2",
+            "imgurl": "https://smsd.mtech-services.net/wp-content/uploads/2022/06/panel-health-care-1024x754.jpg",
+            "title": "La santé marocaine de santé digitale et partenaire officiel de la quatrième édition du congrès international AI2SD",
+            "link": "#"
+        },
+        {
+            "id": "3",
+            "imgurl": "https://smsd.mtech-services.net/wp-content/uploads/2022/06/programme_IA_Oncologie_27_mars_2021-1-768x1086.jpg",
+            "title": "Workshop",
+            "link": "#"
+        },
+        {
+            "id": "4",
+            "imgurl": "https://smsd.mtech-services.net/wp-content/uploads/2022/06/affiche-et-programme-a4-copie-1-768x1086.jpg",
+            "title": "Symposuim sur la santé digitale",
+            "link": "#"
+        }
+    ],
+    "events": [
+        {
+            "id": "1",
+            "imgurl": "https://smsd.mtech-services.net/wp-content/uploads/2022/06/panel-health-care-1024x754.jpg",
+            "title": "La Société Marocaine de Santé Digitale et partenaire officiel de la quatrième édition du congrès international AI2SD",
+            "link": "#",
+            "description": "En marge de la 4ème édition du congrès international AI2SD organisé par l’ENSAM de RABAT, un Panel intitulé “Santé Digitale” aura lieu dans les locaux de l’ICESCO. Ce panel a été coordonné par la Société Marocaine de Santé Digitale. \n\nTrack chairs participant\n\nPr. RHALEM Wajih, Président de la Société Marocaine de Santé Digitale.\n\nPr. GHAZAL Hassan, Vice président de la Société Marocaine de Santé Digitale.\n\nModerator participant\n\nPr. Najib Al Idrissi, Secrétaire Général de la Société Marocaine de Santé Digitale."
+        },
+        {
+            "id": "2",
+            "imgurl": "https://smsd.mtech-services.net/wp-content/uploads/2022/06/WhatsApp-Image-2022-04-18-at-17.20.41.jpeg",
+            "title": "Workshop organisé par l’Université Privé de Marrakech",
+            "link": "#",
+            "description": "Participation de la Société Marocaine de Santé Digitale au workshop intitulé “Santé Digitale et Télémedecine” organisé par l’Université Privée de Marrakech. L’objectif de ce Workshop est de mettre l’accent sur l’état d’avancement de la télémédecine et santé digitale au niveau national comme à l’international.\n\nParticipants de la SMSD :\n\nPr. RHALEM Wajih, Président de la Société Marocaine de Santé Digitale.\n\nPr. GHAZAL Hassan, Vice président de la Société Marocaine de Santé Digitale."
+        },
+        {
+            "id": "3",
+            "imgurl": "https://smsd.mtech-services.net/wp-content/uploads/2022/06/workshop-affiche-programme-1-1024x743.jpg",
+            "title": "Workshop",
+            "link": "#",
+            "description": "La Société Marocaine de Santé Digitale a organisé un workshop conjointement avec l’université Mohammed Vl des Sciences de la Santé, et l’ENSAM_RABAT un workshop sur Intelligence Artificielle et nouvelles technologies en faveur de la Santé. Plusieurs projets de R&D et d’innovation autour des applications de l’IA et d’autres technologies du digital dans le domaine de la santé se dessinent à l’horizon ce qui va renforcer la collaboration scientifique entre les chercheurs des trois organismes.\n\nComité d’organisation\n\nPr. RHALEM Wajih, Président de la Société Marocaine de Santé Digitale.\n\nPr. GHAZAL Hassan, Vice président de la Société Marocaine de Santé Digitale.\n\nPr. Najib Al Idrissi, Secrétaire Général de la Société Marocaine de Santé Digitale.\n\nPr. Zeriab Es-Sadek, Trésorier de la Société Marocaine de Santé Digitale."
+        },
+        {
+            "id": "5",
+            "imgurl": "https://smsd.mtech-services.net/wp-content/uploads/2022/06/workshop-affiche-programme-1-1024x743.jpg",
+            "title": "Workshop",
+            "link": "#",
+            "description": "La Société Marocaine de Santé Digitale a organisé un workshop conjointement avec l’université Mohammed Vl des Sciences de la Santé, et l’ENSAM_RABAT un workshop sur Intelligence Artificielle et nouvelles technologies en faveur de la Santé. Plusieurs projets de R&D et d’innovation autour des applications de l’IA et d’autres technologies du digital dans le domaine de la santé se dessinent à l’horizon ce qui va renforcer la collaboration scientifique entre les chercheurs des trois organismes.\n\nComité d’organisation\n\nPr. RHALEM Wajih, Président de la Société Marocaine de Santé Digitale.\n\nPr. GHAZAL Hassan, Vice président de la Société Marocaine de Santé Digitale.\n\nPr. Najib Al Idrissi, Secrétaire Général de la Société Marocaine de Santé Digitale.\n\nPr. Zeriab Es-Sadek, Trésorier de la Société Marocaine de Santé Digitale."
+        }
+    ]
 }
