@@ -7,19 +7,24 @@
         <link rel="stylesheet" href="/static/style.css" />
     </head>
     <body>
-        <header class="z-10 absolute left-[50%] bg-white text-black translate-x-[-50%] supports-[backdrop-filter]:backdrop-blur-sm flex gap-x-12 items-center justify-center my-5 px-7 py-3 rounded-2xl w-max text-white">
+        <header class="z-10 absolute left-[50%] bg-white text-black translate-x-[-50%] supports-[backdrop-filter]:backdrop-blur-sm flex gap-x-8 items-center justify-center my-5 px-7 py-3 rounded-2xl w-max text-white">
             <a href="/">
                 <img class="w-10 pointer" src="/static/img/e_sante_logo.png" alt="Logo"/>
             </a>
 
-        <nav class="flex gap-x-20">
+        <nav class="flex gap-x-12">
             <div class="relative">
                 <button class="flex items-center gap-x-7" onmouseover="document.getElementById('options').classList.toggle('hidden')"> 
-                        p production Scientifique
+                        p Production Scientifique
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
                 </button>
                 <div id="options" class="absolute hidden z-10 py-1 mt-2 w-40 text-black bg-white rounded-md shadow-lg">
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Communication Scientifique</a>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Reverse Engineering</a>
+                        <a href="/CommunicationScientifique" class="block px-4 py-2 my-3 hover:bg-gray-100">Communication Scientifique</a>
+                        <a href="/ReverseEngineering" class="block px-4 py-2 hover:bg-gray-100">Reverse Engineering</a>
                 </div>
             </div>
             <a href="/partenariats">Partenariats</a>
