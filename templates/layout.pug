@@ -5,22 +5,26 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/static/style.css" />
+        style(type="text/css").
+            .btn-ps:hover>#options {
+                display: block;
+            }
     </head>
     <body>
-        <header class="z-10 absolute left-[50%] bg-white text-black translate-x-[-50%] supports-[backdrop-filter]:backdrop-blur-sm flex gap-x-8 items-center justify-center my-5 px-7 py-3 rounded-2xl w-max text-white">
+        <header class="z-10 absolute left-[50%] bg-white text-black translate-x-[-50%] flex gap-x-8 items-center justify-center my-5 px-7 py-3 rounded-2xl w-max text-black">
             <a href="/">
                 <img class="w-10 pointer" src="/static/img/e_sante_logo.png" alt="Logo"/>
             </a>
 
         <nav class="flex gap-x-12 font-bold">
-            <div class="relative">
-                <button class="flex items-center gap-x-1" onmouseover="document.getElementById('options').classList.toggle('hidden')"> 
+            <div class="relative btn-ps">
+                <button class="flex items-center gap-x-1"> 
                         p Production Scientifique
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                 </button>
-                <div id="options" class="absolute hidden z-10 py-1 mt-2 w-40 text-black bg-white rounded-md shadow-lg">
+                <div id="options" class="absolute hidden z-10 py-1 w-40 text-black bg-white rounded-md shadow-lg">
                         <a href="/CommunicationScientifique" class="block px-4 py-2 my-3 hover:bg-gray-100">Communication Scientifique</a>
                         <a href="/ReverseEngineering" class="block px-4 py-2 hover:bg-gray-100">Reverse Engineering</a>
                 </div>
