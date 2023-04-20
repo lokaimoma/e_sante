@@ -1,0 +1,7 @@
+//- Define the 'evenements' mixin that generates HTML for displaying events
+mixin evenements(events)
+  ul
+    each event in events
+      li
+        h2= event.title
+        img(src=event.imgurl, alt=event.title)
