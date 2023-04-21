@@ -4,7 +4,7 @@ import { configManager } from "../utils/config.js";
 const router = Router();
 
 router.get("/", (_, res, __) => {
-    res.render('index', { title: 'Main page', acts: configManager.activites });
+    res.render("index", { title: "Main page" , acts: configManager.activites, events: configManager.events});
 });
 
 router.get("/partenariats", (_, res, __) => {

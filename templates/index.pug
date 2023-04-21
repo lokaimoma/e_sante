@@ -1,18 +1,52 @@
 extends layout
 
 block content
+    link(rel="stylesheet", href="/static/swiper-bundle.min.css")
+
     div(class="relative bg-[url('/static/img/hero.jpg')] bg-cover before-content-['*'] before:bg-black/60 before:absolute before:inset-0 min-h-[100vh] flex justify-center items-center")
         div(class="z-10 text-center bg-white/20 p-8 border rounded-lg animate-pulse")
-            h1(class="text-6xl text-white font-bold animate-pulse duration-1000 delay-500 mb-4 text-blue-500") Société Marocaine De Santé Digitale
-            h2(class="text-2xl text-white font-bold animate-bounce duration-1000 delay-700") La santé numérique au service de la société
+            h1(class="text-6xl text-white font-bold ") Société Marocaine De Santé Digitale
+            h2(class="text-2xl text-white ") La santé numérique au service de la société
 
-    div(class="")
-        h2 Les activites
+    div.flex.flex-col.items-center.justify-center.gap-10.py-20
+        h3.carousel des activités de la société
 
-    div
-        each act in acts
-            a(href=act.link class="p-4")
-                img(src=act.imgurl alt="Activity image" class="w-[300px]")
-                h3 #{act.title}
+    div.swiper-container
+        div.swiper-wrapper
+            each act in acts
+                div.swiper-slide
+                    div.flex.flex-col.items-center.justify-center.gap-10.py-20
+                        h3= act.title
+                        img(src= act.imgurl alt= act.title)
+                        a(href="/activites") Voir plus
 
+    script(src="/static/swiper-bundle.min.js")
+    script.
+        // Initialize Swiper after the page has loaded
+        // You can also use "$(document).ready()" here.
+        window.onload = function () {
+            var swiper = new Swiper(".swiper-container", { // make sure the container class matches
+                slidesPerView: 2,
+                spaceBetween: 20,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                },
 
+                
+            });
+        };
