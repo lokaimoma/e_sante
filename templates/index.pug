@@ -2,6 +2,8 @@ extends layout
 
 block content
     link(rel="stylesheet", href="/static/swiper-bundle.min.css")
+    link(rel="stylesheet", href="/static/swiper-bundle.min.css.map")
+    link(rel="stylesheet", href="/static/card.css")
 
     div(class="relative bg-[url('/static/img/hero.jpg')] bg-cover before-content-['*'] before:bg-black/60 before:absolute before:inset-0 min-h-[100vh] flex justify-center items-center")
         div(class="z-10 text-center bg-white/20 p-8 border rounded-lg animate-pulse")
@@ -10,15 +12,17 @@ block content
 
     div.flex.flex-col.items-center.justify-center.gap-10.py-20
         h3.carousel des activités de la société
-
+    // adjust the number of slides per view and space between slides
     div.swiper-container
         div.swiper-wrapper
             each act in acts
                 div.swiper-slide
-                    div.flex.flex-col.items-center.justify-center.gap-10.py-20
-                        h3= act.title
-                        img(src= act.imgurl alt= act.title)
-                        a(href="/activites") Voir plus
+                    .card
+                        img(src=act.imgurl, alt=act.title)
+                        .card-body
+                            h3.card-title=act.title
+                            p.card-text=act.description
+                            a(href=act.link) Lire plus
 
     script(src="/static/swiper-bundle.min.js")
     script.
@@ -48,6 +52,12 @@ block content
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
             },
+            scrollbar: {
+                el: ".swiper-scrollbar",
+                hide: true,
+            },
+
+
             
         });
 
