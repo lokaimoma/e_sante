@@ -4,7 +4,15 @@ import { configManager } from "../utils/config.js";
 const router = Router();
 
 router.get("/", (_, res, __) => {
-    res.render("index", { title: "Main page" , acts: configManager.activites, events: configManager.events});
+    // A list of parner name and logo link objects
+    const partners = [];
+    partners.push({ name: "L’École Nationale Supérieure d Arts et Métiers de Rabat", img: "/static/img/ensamrabat.png" });
+    partners.push({ name: "Pro Cura Medici – Management Medical GmbH", img: "/static/img/prccuramedici.png" });
+    partners.push({ name: "PharmaTrace", img: "/static/img/pharmatrace.jpg" });
+    partners.push({ name: "International Competencies Morocco (ICM)", img: "/static/img/icmorocco.svg"});
+    res.render("index", {
+        title: "Main page", acts: configManager.activites, events: configManager.events, partners,
+    });
 });
 
 router.get("/contact", (_, res, __) => {
