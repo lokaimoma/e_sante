@@ -27,7 +27,11 @@ block content
                             p.card-text=act.description
                             a(href=act.link) Lire plus
 
-    script(src="/static/swiper-bundle.min.js", type="text/javascript")
+    include includes/partenariats.pug
+    include includes/membres.pug
+
+
+    script(src="/static/swiper-bundle.min.js")
     script.
         var swiper = new Swiper(".swiper-container", {
             slidesPerView: 3,
@@ -35,6 +39,21 @@ block content
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
+            },
+
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 40,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 50,
+                },
             },
             navigation: {
                 nextEl: ".swiper-button-next",
@@ -44,4 +63,9 @@ block content
                 el: ".swiper-scrollbar",
                 hide: true,
             },
+
+
+            
         });
+
+    

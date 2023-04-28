@@ -1,0 +1,10 @@
+section(class="my-[5em] py-[10em] px-[4em] bg-gray-100 w-[100vw]" id="partners")
+    // Section header (Line at the left with title)
+    header(class="h-max relative before:absolute before:left-0 before:h-full before:w-[8px] before:bg-green-700")
+        h2(class="text-3xl md:text-4xl font-medium ml-4") Les partenaires
+
+    div(class="grid grid-cols-1 lg:grid-cols-2 mx-auto mt-[3em] md:mt-[7em]")
+        each obj in partners 
+            div(class="bg-white p-[2em] lg:p-[4em] min-w-[90%] lg:min-w-[200px] 2xl:min-w-[800px] flex flex-col justify-center items-center odd:border-r-2 border-b-2 gap-[2em]")
+               img(src=obj.img alt="Logo de " + obj.name) 
+               h5(class="font-semibold text-center")=obj.name
