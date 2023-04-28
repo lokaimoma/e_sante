@@ -1,17 +1,16 @@
 extends layout
 
 block content
-    link(rel="stylesheet", href="/static/swiper-bundle.min.css")
-    link(rel="stylesheet", href="/static/card.css")
 
-    div(class="relative bg-[url('/static/img/hero.jpg')] bg-cover before-content-['*'] before:bg-black/60 before:absolute before:inset-0 min-h-[100vh] flex justify-center items-center")
-        div(class="z-10 text-center bg-white/20 p-8 border rounded-lg animate-pulse",style="background-color: #1D1F20;")
-            h1(class="text-6xl text-white font-bold") Société Marocaine De Santé Digitale
-            h2(class="text-2xl text-white") La santé numérique au service de la société
+    div(class="relative bg-[url('/static/img/hero.jpg')] bg-cover before-content-['*']  before:absolute before:inset-0 min-h-[100vh] flex justify-center items-center")
+        div(class="z-10 text-center bg-white/80 p-8 border rounded-lg",style="background-color: white;")
+            div(class="relative")
+                h1(class="text--xl text-white font-bold",style="color:#0095FF;") Société Marocaine de Santé Digitale                
             div(class="ocean")
                 div(class="wave")
                 div(class="wave")
-                div(class="wave")
+
+            
 
 
     div.flex.flex-col.items-center.justify-center.gap-10.py-20

@@ -5,14 +5,16 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1")
         link(rel="stylesheet",href="/static/style.css")
+        script(src="/static/js/main.js" type="text/javascript" defer) 
         style(type="text/css").
             .btn-ps:hover>#options {display: block;}
     body
-        header(class="z-10 absolute left-[50%] translate-x-[-50%] flex gap-x-8 items-center justify-center my-5 px-7 py-3 rounded-2xl w-max bg-white",style="color:#41644A")
+        header(class="z-10  border rounded-lg absolute left-[50%] translate-x-[-50%] flex gap-x-8 items-center justify-center my-5 px-7 py-3 rounded-2xl w-max bg-white",style="color:#003556;border:1px solid #3C79F5")
             a(href="/")
                 img(class="w-10 pointer" src="/static/img/logo.png" alt="Logo")
 
             nav(class="flex gap-x-12 font-bold")
+                a(href="/activites") Activités
                 div(class="relative btn-ps")
                     button(class="flex items-center gap-x-1") 
                         p Production Scientifique
@@ -21,9 +23,8 @@ html(lang="en")
                     div(id="options" class="absolute hidden z-10 py-1 w-40 text-black bg-white rounded-md shadow-lg")
                         a(href="/ProductionScientifique/CommunicationScientifique" class="block px-4 py-2 my-3 hover:bg-gray-100") Communication Scientifique
                         a(href="/ProductionScientifique/ReverseEngineering" class="block px-4 py-2 hover:bg-gray-100") Reverse Engineering
-                a(href="/partenariats") Partenariats
+                a(href="/partenariats") Partenaires
                 a(href="/membres") Membres
-                a(href="/activites") Activités
                 a(href="/medias") Médias
                 a(href="/propos") À propos
                 a(href="/contact") Contact
