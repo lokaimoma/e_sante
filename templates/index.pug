@@ -2,13 +2,17 @@ extends layout
 
 block content
     link(rel="stylesheet", href="/static/swiper-bundle.min.css")
-    link(rel="stylesheet", href="/static/swiper-bundle.min.css.map")
     link(rel="stylesheet", href="/static/card.css")
 
     div(class="relative bg-[url('/static/img/hero.jpg')] bg-cover before-content-['*'] before:bg-black/60 before:absolute before:inset-0 min-h-[100vh] flex justify-center items-center")
-        div(class="z-10 text-center bg-white/20 p-8 border rounded-lg animate-pulse")
-            h1(class="text-6xl text-white font-bold ") Société Marocaine De Santé Digitale
-            h2(class="text-2xl text-white ") La santé numérique au service de la société
+        div(class="z-10 text-center bg-white/20 p-8 border rounded-lg animate-pulse",style="background-color: #1D1F20;")
+            h1(class="text-6xl text-white font-bold") Société Marocaine De Santé Digitale
+            h2(class="text-2xl text-white") La santé numérique au service de la société
+            div(class="ocean")
+                div(class="wave")
+                div(class="wave")
+                div(class="wave")
+
 
     div.flex.flex-col.items-center.justify-center.gap-10.py-20
         h3.carousel des activités de la société
@@ -24,7 +28,7 @@ block content
                             p.card-text=act.description
                             a(href=act.link) Lire plus
 
-    script(src="/static/swiper-bundle.min.js")
+    script(src="/static/swiper-bundle.min.js", type="text/javascript")
     script.
         var swiper = new Swiper(".swiper-container", {
             slidesPerView: 3,
@@ -32,21 +36,6 @@ block content
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
-            },
-
-            breakpoints: {
-                640: {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                },
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 40,
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 50,
-                },
             },
             navigation: {
                 nextEl: ".swiper-button-next",
@@ -56,9 +45,4 @@ block content
                 el: ".swiper-scrollbar",
                 hide: true,
             },
-
-
-            
         });
-
-    
