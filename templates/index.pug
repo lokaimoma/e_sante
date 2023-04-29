@@ -5,67 +5,12 @@ block content
     div(class="relative bg-[url('/static/img/hero.jpg')] bg-cover before-content-['*']  before:absolute before:inset-0 min-h-[100vh] flex justify-center items-center")
         div(class="z-10 text-center bg-white/80 p-8 border rounded-lg",style="background-color: white;")
             div(class="relative")
-                h1(class="text--xl text-white font-bold",style="color:#0095FF;") Société Marocaine de Santé Digitale                
+                h1(class="gradient-text text-6xl text-white font-bold",style="color:#0095FF;") Société Marocaine de Santé Digitale                
             div(class="ocean")
                 div(class="wave")
                 div(class="wave")
 
-            
-
-
-    div.flex.flex-col.items-center.justify-center.gap-10.py-20
-        h3.carousel des activités de la société
-    // adjust the number of slides per view and space between slides
-    div.swiper-container
-        div.swiper-wrapper
-            each act in acts
-                div.swiper-slide
-                    .card
-                        img(src=act.imgurl, alt=act.title)
-                        .card-body
-                            h3.card-title=act.title
-                            p.card-text=act.description
-                            a(href=act.link) Lire plus
 
     include includes/partenariats.pug
     include includes/membres.pug
 
-
-    script(src="/static/swiper-bundle.min.js")
-    script.
-        var swiper = new Swiper(".swiper-container", {
-            slidesPerView: 3,
-            spaceBetween: 30,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-
-            breakpoints: {
-                640: {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                },
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 40,
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 50,
-                },
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-            scrollbar: {
-                el: ".swiper-scrollbar",
-                hide: true,
-            },
-
-
-            
-        });
-
-    
