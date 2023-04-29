@@ -3,12 +3,20 @@ extends layout
 block content
 
     div(class="relative bg-[url('/static/img/hero.jpg')] bg-cover before-content-['*']  before:absolute before:inset-0 min-h-[100vh] flex justify-center items-center")
-        div(class="z-10 text-center bg-white/80 p-8 border rounded-lg",style="background-color: white;")
-            div(class="relative")
+        div(class="z-10 text-center ")
+            div(class="relative border rounded-lg",style="z-index:1;background-color:rgba(255,255,255);box-shadow:0 0 20px rgba(0,0,0,0.5);padding:17px;")
                 h1(class="gradient-text text-6xl text-white font-bold",style="color:#0095FF;") Société Marocaine de Santé Digitale                
-            div(class="ocean")
-                div(class="wave")
-                div(class="wave")
+            div.mouse_scroll
+                a(href="http://www.google.com") 
+                    div.mouse
+                        div.wheel
+                    div
+                        span.m_scroll_arrows.unu
+                        span.m_scroll_arrows.doi
+                        span.m_scroll_arrows.trei        
+        div(class="ocean")
+            div(class="wave")
+            div(class="wave")
 
 
     include includes/partenariats.pug
