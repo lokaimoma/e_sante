@@ -15,6 +15,10 @@ router.get("/", (_, res, __) => {
     });
 });
 
+router.get("/evenements", (_, res, __) => {
+    res.render("evenements", {events: configManager.events});
+});
+
 router.get("/contact", (_, res, __) => {
     res.render("contact", { title: "Contact" })
 });
