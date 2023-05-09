@@ -15,4 +15,4 @@ app.use("/", BaseRouter);
 
 
 
-app.listen(8080, () => console.log("\u001b[32m[INFO]\u001b[0m App started successfully on http://localhost:8080"));
+app.listen(8000, () => console.log("\u001b[32m[INFO]\u001b[0m App started successfully on http://localhost:8080"));
