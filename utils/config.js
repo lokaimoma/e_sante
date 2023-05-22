@@ -52,8 +52,8 @@ class Event {
       const data = await response.json();
     console.log(JSON.stringify(data))
       const videos = data.items;
-      // return videos;
-    return [];
+      //-1return videos;
+      return []
     } catch (error) {
       throw new Error(`Failed to fetch videos: ${error}`);
     }

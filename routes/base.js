@@ -31,7 +31,9 @@ router.get("/ProductionScientifique/reverseEngineering", (_, res, __) => {
 router.get("/ProductionScientifique/communicationScientifique", (_, res, __) => {
     res.render("communicationScientifique", { title: "Communication Scientifique" })
 });
-
+router.get("/propos", (_, res, __) => {
+    res.render("propos", { title: "propos" })
+});
 
 
 
