@@ -2,7 +2,8 @@
 export default {
   content: ["./templates/**/*.{pug, html}"],
   theme: {
-    extend: {},
+    extend: {
+    },
   },
   plugins: [],
 }

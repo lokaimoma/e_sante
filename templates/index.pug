@@ -1,10 +1,13 @@
 extends layout
+block scripts
+    link(rel="stylesheet" href="/static/css/waves.css")
+
 block content
     div(class="relative bg-[url('/static/img/hero.jpg')] bg-cover before-content-['*']  before:absolute before:inset-0 min-h-[100vh] flex justify-center items-center")
         div(style="height: 100%;width: 100%;margin-top: 5rem;")
             include includes/activitecarousel.pug
         div(class="ocean")
-            div(class="h-[80px] w-full absolute bottom-0 top-0 left-0 right-0 overflow-x-hidden")
+            div(class="wave")
             div(class="wave")          
     include includes/partenariats.pug
     include includes/membres.pug
