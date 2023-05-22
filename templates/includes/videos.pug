@@ -1,0 +1,6 @@
+section(class="pt-[7em] pb-[3em] px-[1em] bg-gray-100")
+  div(class="caro-cont js-flickity" data-flickity-options={ "wrapAround": true, "autoPlay": true })
+    each video in videos
+      a(href="https://www.youtube.com/watch?v="+video.id.videoId class="caro-obj" class="border-2 rounded-lg bg-white me-2 flex flex-col items-center" style="margin-right: 1rem;display:flex;flex-direction:column;justify-content:center;align-items:center;border-radius:17px;box-shadow:0 0 10px rgba(0,0,0,0.2);transition:all 0.3s ease;")
+        img(src=video.snippet.thumbnails.default.url class="rounded-tr-lg rounded-tl-lg" style="height:400px; width: 100%; object-fit: cover; object-position: center;border-radius:17px")
+        h3(class="p-[1em] font-semibold" style="position:relative;font-size:23px;padding:7px")=video.snippet.title
