@@ -8,28 +8,12 @@ html(lang="en" class="scroll-smooth")
         link(rel="stylesheet",href="/static/css/flickity.css")
         link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css")
         script(src="/static/js/flickity.pkgd.min.js" async)
+        script(src="/static/js/main.js" defer)
         style(type="text/css").
             .btn-ps:hover>#options {display: block;}
         block scripts
     body
         include includes/header
-            
-            nav(class="flex gap-x-12 font-bold")
-                a(href="/#partners") Partenaires
-                a(href="/#membres") Membres
-                a(href="/medias") Médias
-                a(href="/evenements") Activités            
-                div(class="relative btn-ps")
-                
-                    button(class="flex items-center gap-x-1") 
-                        p Production Scientifique
-                        svg(xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down")
-                            polyline(points="6 9 12 15 18 9")
-                    div(id="options" class="absolute hidden z-10 py-1 w-40 text-black bg-white rounded-md shadow-lg")
-                        a(href="/ProductionScientifique/CommunicationScientifique" class="block px-4 py-2 my-3 hover:bg-gray-100") Communication Scientifique
-                        a(href="/ProductionScientifique/ReverseEngineering" class="block px-4 py-2 hover:bg-gray-100") Reverse Engineering
-                a(href="/propos") À propos
-                a(href="/contact") Contact
         block content
     
     
