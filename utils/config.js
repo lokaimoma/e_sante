@@ -4,6 +4,9 @@ import path from "path";
 const CONFIG_FILE_NAME = "config.json";
 const ACTIVITIES_KEY = "activities";
 const EVENTS_KEY = "events";
+const apiKey = 'AIzaSyBB6WLCfIYho3cFYMEX4zBl-O98eLQv9z8';
+const channelId = 'UCe25Cbiayb_IdByAsZV9xlA';
+const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=10`;
 
 class Activity {
     id;
@@ -35,13 +38,43 @@ class Event {
     }
 }
 
+
+  async function youtubeFetching() {
+    // Replace the values below with your own API key and channel ID
+    const apiKey = 'AIzaSyBB6WLCfIYho3cFYMEX4zBl-O98eLQv9z8';
+    const channelId = 'UCe25Cbiayb_IdByAsZV9xlA';
+
+    // Define the API endpoint to fetch videos from the channel
+    const API_ENDPOINT = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=10`;
+  
+    try {
+      const response = await fetch(API_ENDPOINT);
+      const data = await response.json();
+      const videos = data.items;
+      return videos;
+    } catch (error) {
+      throw new Error(`Failed to fetch videos: ${error}`);
+    }
+  }
+
+  async function fetchVideos() {
+    try {
+      const videos = await youtubeFetching();
+      return videos;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
+
 class ConfigManager {
     activites = [];
     events = [];
+    videos = [];
 
     constructor(parentDir) {
         this.confFPath = path.join(parentDir, CONFIG_FILE_NAME)
-        readFile(this.confFPath, (err, json) => {
+        readFile(this.confFPath, async (err, json) => {
             if (err) throw err;
             const obj = JSON.parse(json.toString());
             if (obj === null) {
@@ -61,6 +94,25 @@ class ConfigManager {
             this.events = obj[EVENTS_KEY].map(
                 ev => new Event(ev.title, ev.description, ev.imgurl, ev.id)
             );
+            
+            this.videos = await fetchVideos();
+            console.log(this.videos)
+            this.videos.forEach(video => {
+                let videoId = video.id.videoId;
+                let videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+                let videoTitle = video.snippet.title;
+                let videoDescription = video.snippet.description;
+                let videoThumbnail = video.snippet.thumbnails.default.url;
+                let videoObject = {
+                    title: videoTitle,
+                    description: videoDescription,
+                    imgurl: videoThumbnail,
+                    id: videoId,
+                    link: videoUrl
+                }
+                this.events.push(new Event(videoObject.title, videoObject.description, videoObject.imgurl, videoObject.id, videoObject.link));
+            }
+            )
         })
     }
 
@@ -146,6 +198,8 @@ class ConfigManager {
         this.#save();
     }
 }
+
+
 
 const configManager = new ConfigManager(path.dirname(".."));
 export {ConfigManager, configManager};
