@@ -20,18 +20,36 @@ div
                 a(href="/propos") À propos
                 a(href="/contact") Contact
                 
-    header(class="absolute inset-0 z-[40]")
-            div
-                button(class="text-white fixed top-[15px] left-[10px]" onclick="toggleMobNav()") =
+    header(class="absolute md:hidden inset-0 z-[40]")
+            button(class="text-white fixed top-[15px] left-[10px]" onclick="toggleMobNav()") =
 
-                div(id="mob-nav" class="w-0 h-[100vh] bg-black/60 transition-all duration-[250ms] grid grid-cols-[80%_auto] items-start")
-                    div(class="hidden bg-white h-full")
-                        header(class="flex")
-                        a(href="/")
-                            img(class="w-10 pointer" src="/static/img/logo.png" alt="Logo")
-                        h3 E-Sante
+            div(id="mob-nav" class="w-0 h-[100vh] bg-black/60 transition-all duration-[250ms] grid grid-cols-[80%_auto] items-start")
+                div(id="menushell" class="transition-all duration-[250ms] w-0 h-full bg-[url('/static/img/hero.jpg')] bg-cover bg-center")
+                    div(class="backdrop-blur-md bg-black/60 text-[1.3em] h-full text-white")
+                        header(class="hidden flex items-center gap-4 px-[0.9em] py-[0.9em] border-b-2")
+                            a(href="/")
+                                img(class="w-10 pointer" src="/static/img/logo.png" alt="Logo")
+                            h3(class="font-bold") E-Sante
 
 
-                    button(class="text-white hidden pt-[1em]" onclick="toggleMobNav()") &times;
+                        nav(class="hidden flex flex-col pt-3 font-bold [&>*]:px-[0.9em] [&>*]:py-[0.9em]")
+                            a(href="/#partners") Partenaires
+                            a(href="/#membres") Membres
+                            a(href="/medias") Médias
+                            a(href="/evenements") Activités            
+                            div(class="relative btn-ps")
+                            
+                                button(class="flex items-center gap-x-1") 
+                                    p Production Scientifique
+                                    svg(xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down")
+                                        polyline(points="6 9 12 15 18 9")
+                                div(id="options" class="absolute hidden z-10 py-1 w-40 text-black bg-white rounded-md shadow-lg")
+                                    a(href="/ProductionScientifique/CommunicationScientifique" class="block px-4 py-2 my-3 hover:bg-gray-100") Communication Scientifique
+                                    a(href="/ProductionScientifique/ReverseEngineering" class="block px-4 py-2 hover:bg-gray-100") Reverse Engineering
+                            a(href="/propos") À propos
+                            a(href="/contact") Contact
+
+
+                button(class="hidden text-white pt-[1em]" onclick="toggleMobNav()") &times;
 
 

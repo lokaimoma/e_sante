@@ -50,8 +50,10 @@ class Event {
     try {
       const response = await fetch(API_ENDPOINT);
       const data = await response.json();
+    console.log(JSON.stringify(data))
       const videos = data.items;
-      return videos;
+      // return videos;
+    return [];
     } catch (error) {
       throw new Error(`Failed to fetch videos: ${error}`);
     }
