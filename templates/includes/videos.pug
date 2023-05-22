@@ -1,4 +1,6 @@
-section(class="pt-[7em] pb-[3em] px-[1em] bg-gray-100")
+section(class="pt-[10em] pb-[5em] px-[1em] bg-[#0088F8] ")
+  header(class="h-max relative before:absolute before:left-0 before:h-full before:w-[8px] before:bg-blue-700 mr-4")
+        h2(class="text-3xl md:text-4xl font-medium ml-2 text-white mb-3") Média
   div(class="caro-cont js-flickity" data-flickity-options={ "wrapAround": true, "autoPlay": true })
     each video in videos
       a(href="https://www.youtube.com/watch?v="+video.id.videoId class="caro-obj" class="border-2 rounded-lg bg-white me-2 flex flex-col items-center" style="margin-right: 1rem;display:flex;flex-direction:column;justify-content:center;align-items:center;border-radius:17px;box-shadow:0 0 10px rgba(0,0,0,0.2);transition:all 0.3s ease;")
