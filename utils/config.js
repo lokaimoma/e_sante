@@ -4,6 +4,7 @@ import path from "path";
 const CONFIG_FILE_NAME = "config.json";
 const ACTIVITIES_KEY = "activities";
 const EVENTS_KEY = "events";
+const VIDEOS_KEY = "videos"
 const apiKey = 'AIzaSyBB6WLCfIYho3cFYMEX4zBl-O98eLQv9z8';
 const channelId = 'UCe25Cbiayb_IdByAsZV9xlA';
 const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=10`;
@@ -75,6 +76,7 @@ class ConfigManager {
 
   constructor(parentDir) {
     this.confFPath = path.join(parentDir, CONFIG_FILE_NAME)
+    let videosFetchFromYt = true;
     readFile(this.confFPath, async (err, json) => {
       if (err) throw err;
       const obj = JSON.parse(json.toString());
@@ -97,7 +99,7 @@ class ConfigManager {
       );
 
       this.videos = await fetchVideos();
-      this.videos.forEach(video => {
+      this.videos.map(video => {
         let videoId = video.id.videoId;
         let videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
         let videoTitle = video.snippet.title;
@@ -110,10 +112,18 @@ class ConfigManager {
           id: videoId,
           link: videoUrl
         }
-        this.events.push(new Event(videoObject.title, videoObject.description, videoObject.imgurl, videoObject.id, videoObject.link));
+        new Event(videoObject.title, videoObject.description, videoObject.imgurl, videoObject.id, videoObject.link);
       }
       )
+      if (this.videos.length <= 0) {
+        videosFetchFromYt = false
+      this.videos = obj[VIDEOS_KEY]
+      }
     })
+
+    if (videosFetchFromYt) {
+      this.#save();
+    }
   }
 
   // add method
@@ -139,7 +149,8 @@ class ConfigManager {
   #save = () => {
     const obj = {
       [ACTIVITIES_KEY]: this.activites,
-      [EVENTS_KEY]: this.events
+      [EVENTS_KEY]: this.events,
+      [VIDEOS_KEY]: this.videos
     }
 
     const json = JSON.stringify(obj);
