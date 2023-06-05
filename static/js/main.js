@@ -9,6 +9,14 @@ const menuContent = Array.from(menuShell.children[0].children);
 let navOpen = false;
 let timeout = undefined;
 
+
+// close nav bar if menu item is clicked
+Array.from(menuShell.children[0].children[1].children).forEach(link => {
+  link.addEventListener('click', _ => {
+    toggleMobNav();
+  }, {passive: true})
+})
+
 function toggleMobNav() {
   if (timeout) {
     clearTimeout(timeout);
