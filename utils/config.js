@@ -1,4 +1,4 @@
-import { readFile } from "node:fs";
+import { readFile, writeFile } from "node:fs";
 import path from "path";
 
 const CONFIG_FILE_NAME = "config.json";
@@ -52,8 +52,7 @@ async function youtubeFetching() {
     const response = await fetch(API_ENDPOINT);
     const data = await response.json();
     const videos = data.items;
-    //-1return videos;
-    return []
+    return videos;
   } catch (error) {
     throw new Error(`Failed to fetch videos: ${error}`);
   }
@@ -64,7 +63,7 @@ async function fetchVideos() {
     const videos = await youtubeFetching();
     return videos;
   } catch (error) {
-    console.error(error);
+    console.error("Failed to fetch videos: ", error);
   }
 }
 
@@ -117,12 +116,14 @@ class ConfigManager {
       )
       if (this.videos.length <= 0) {
         videosFetchFromYt = false
-      this.videos = obj[VIDEOS_KEY]
+        this.videos = obj[VIDEOS_KEY]
       }
     })
 
     if (videosFetchFromYt) {
       this.#save();
+    }else {
+      console.log("Failed to fetch videos from youtube. Using local cache....")
     }
   }
 
