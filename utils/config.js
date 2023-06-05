@@ -50,7 +50,6 @@ async function youtubeFetching() {
   try {
     const response = await fetch(API_ENDPOINT);
     const data = await response.json();
-    console.log(JSON.stringify(data))
     const videos = data.items;
     //-1return videos;
     return []
@@ -98,7 +97,6 @@ class ConfigManager {
       );
 
       this.videos = await fetchVideos();
-      console.log(this.videos)
       this.videos.forEach(video => {
         let videoId = video.id.videoId;
         let videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
