@@ -78,6 +78,7 @@ class ConfigManager {
     let videosFetchFromYt = true;
     readFile(this.confFPath, async (err, json) => {
       if (err) throw err;
+
       const obj = JSON.parse(json.toString());
       if (obj === null) {
         throw new Error("Config file is not a valid Json");
@@ -117,18 +118,16 @@ class ConfigManager {
       if (this.videos.length <= 0) {
         videosFetchFromYt = false
         this.videos = obj[VIDEOS_KEY]
+        console.log("Failed to fetch videos from youtube. Using local cache....")
+      }else {
+        this.#save();
+        console.log("Caching youtube videos data....")
       }
     })
-
-    if (videosFetchFromYt) {
-      this.#save();
-    }else {
-      console.log("Failed to fetch videos from youtube. Using local cache....")
-    }
   }
 
   // add method
-  #add = (key, obj) => {
+  #add(key, obj) {
     if (key === ACTIVITIES_KEY) {
       this.activites.push(new Activity(obj.imgurl, obj.title, obj.link, obj.id));
     } else if (key === EVENTS_KEY) {
@@ -147,7 +146,7 @@ class ConfigManager {
   }
 
   // save method
-  #save = () => {
+  #save() {
     const obj = {
       [ACTIVITIES_KEY]: this.activites,
       [EVENTS_KEY]: this.events,
@@ -162,7 +161,7 @@ class ConfigManager {
   }
 
   // delete method
-  #delete = (key, id) => {
+  #delete(key, id) {
     if (key === ACTIVITIES_KEY) {
       this.activites = this.activites.filter(act => act.id !== id);
     } else if (key === EVENTS_KEY) {
@@ -181,7 +180,7 @@ class ConfigManager {
   }
 
   // update method
-  #update = (key, id, obj) => {
+  #update(key, id, obj) {
     if (key === ACTIVITIES_KEY) {
       this.activites = this.activites.map(act => {
         if (act.id === id) {
